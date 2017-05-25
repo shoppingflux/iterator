@@ -1,8 +1,10 @@
 <?php
 namespace ShoppingFeed\Iterator;
 
-class FilterAggregateIterator extends AbstractIterator implements \Countable
+class FilterAggregateIterator extends AbstractIterator implements \Countable, FilterAggregateIteratorInterface
 {
+    use FilterAggregateAwareTrait;
+
     /**
      * @var callable[]
      */
@@ -14,17 +16,6 @@ class FilterAggregateIterator extends AbstractIterator implements \Countable
     public function __construct($arrayOrTraversable)
     {
         $this->items = $arrayOrTraversable;
-    }
-
-    /**
-     * @param callable $filter
-     * @return $this
-     */
-    public function addFilter(callable $filter)
-    {
-        $this->filters[] = $filter;
-
-        return $this;
     }
 
     /**
