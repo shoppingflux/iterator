@@ -1,5 +1,6 @@
 {
   "name": "shoppingfeed/iterator",
+  "license": "MIT",
   "require": {
     "php": ">=5.6"
   },
