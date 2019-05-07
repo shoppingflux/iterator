@@ -31,4 +31,12 @@ class FilterAggregateIteratorTest extends \PHPUnit_Framework_TestCase
         $item = $instance->toArray()[0];
         $this->assertSame('Str', $item);
     }
+
+    public function testFiltersOnKeysAreApplied()
+    {
+        $expected = ['test' => 'TEST'];
+        $instance = new FilterAggregateIterator($expected);
+
+        $this->assertSame($expected, $instance->toArray());
+    }
 }

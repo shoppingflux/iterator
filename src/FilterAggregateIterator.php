@@ -23,11 +23,12 @@ class FilterAggregateIterator extends AbstractIterator implements \Countable, Fi
      */
     public function getIterator()
     {
-        foreach ($this->items as $item) {
+        foreach ($this->items as $key => $item) {
             foreach ($this->filters as $filter) {
                 $item = $filter($item);
             }
-            yield $item;
+
+            yield $key => $item;
         }
     }
 
