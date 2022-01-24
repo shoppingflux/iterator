@@ -21,6 +21,7 @@ class FilterAggregateIterator extends AbstractIterator implements \Countable, Fi
     /**
      * @return \Generator
      */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         foreach ($this->items as $key => $item) {

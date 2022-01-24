@@ -33,9 +33,7 @@ class CallbackIterator extends AbstractIterator
         $this->callback = $callback;
     }
 
-    /**
-     * @inheritdoc
-     */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         foreach ($this->iterator as $key => $item) {
