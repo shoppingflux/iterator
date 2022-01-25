@@ -21,9 +21,7 @@ class KeyThenValueIterator extends AbstractIterator
         $this->items = $iterable;
     }
 
-    /**
-     * @inheritdoc
-     */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         foreach ($this->items as $key => $value) {
