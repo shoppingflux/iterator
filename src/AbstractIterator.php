@@ -1,17 +1,16 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
 abstract class AbstractIterator implements IteratorInterface
 {
-    /**
-     * @var array|\Traversable
-     */
+    /** @var array|Traversable */
     protected $items;
 
     /**
      * @inheritdoc
      */
-    public function toArray()
+    public function toArray(): array
     {
         return iterator_to_array($this);
     }

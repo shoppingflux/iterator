@@ -1,28 +1,25 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
-class FilterAggregateIterator extends AbstractIterator implements \Countable, FilterAggregateIteratorInterface
+use Countable;
+use Generator;
+use ReturnTypeWillChange;
+
+class FilterAggregateIterator extends AbstractIterator implements Countable, FilterAggregateIteratorInterface
 {
     use FilterAggregateAwareTrait;
 
-    /**
-     * @var callable[]
-     */
-    private $filters = [];
+    /** @var callable[] */
+    private array $filters = [];
 
-    /**
-     * @param array||Traversable $arrayOrTraversable
-     */
     public function __construct($arrayOrTraversable)
     {
         $this->items = $arrayOrTraversable;
     }
 
-    /**
-     * @return \Generator
-     */
-    #[\ReturnTypeWillChange]
-    public function getIterator()
+    #[ReturnTypeWillChange]
+    public function getIterator(): Generator
     {
         foreach ($this->items as $key => $item) {
             foreach ($this->filters as $filter) {
@@ -33,11 +30,8 @@ class FilterAggregateIterator extends AbstractIterator implements \Countable, Fi
         }
     }
 
-    /**
-     * @return int
-     */
-    #[\ReturnTypeWillChange]
-    public function count()
+    #[ReturnTypeWillChange]
+    public function count(): int
     {
         return count($this->items);
     }

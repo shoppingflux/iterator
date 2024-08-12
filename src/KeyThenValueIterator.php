@@ -1,27 +1,29 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
+
+use InvalidArgumentException;
+use ReturnTypeWillChange;
+use Traversable;
 
 /**
  * This iterator provides successively the given iterable key then its value, then the next key and value...
  */
 class KeyThenValueIterator extends AbstractIterator
 {
-    /**
-     * @param array|\Traversable $iterable
-     */
-    public function __construct($iterable)
+    public function __construct(mixed $iterable)
     {
-        if (!is_array($iterable) && !$iterable instanceof \Traversable) {
-            throw new Exception\InvalidArgumentException(sprintf(
+        if (! is_array($iterable) && ! $iterable instanceof Traversable) {
+            throw new InvalidArgumentException(sprintf(
                 'Argument 1 passed to %s must be an array or an instance of \Traversable',
-                __METHOD__
+                __METHOD__,
             ));
         }
 
         $this->items = $iterable;
     }
 
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function getIterator()
     {
         foreach ($this->items as $key => $value) {

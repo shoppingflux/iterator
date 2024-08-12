@@ -1,27 +1,31 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
-class FilterAggregateIteratorTest extends \PHPUnit_Framework_TestCase
+use ArrayObject;
+use PHPUnit\Framework\TestCase;
+
+class FilterAggregateIteratorTest extends TestCase
 {
-    public function testCountCollection()
+    public function testCountCollection(): void
     {
         $this->assertCount(2, (new FilterAggregateIterator([1, 1])));
     }
 
-    public function testToArrayReturnInternalStoredItems()
+    public function testToArrayReturnInternalStoredItems(): void
     {
         $array = [1, 1];
-        $this->assertSame($array, (new FilterAggregateIterator(new \ArrayObject($array)))->toArray());
+        $this->assertSame($array, (new FilterAggregateIterator(new ArrayObject($array)))->toArray());
     }
 
 
-    public function testAddFilterIsFluent()
+    public function testAddFilterIsFluent(): void
     {
         $instance = new FilterAggregateIterator([]);
         $this->assertSame($instance, $instance->addFilter('strtolower'));
     }
 
-    public function testAddFiltersAreAppliedOnItems()
+    public function testAddFiltersAreAppliedOnItems(): void
     {
         $instance = new FilterAggregateIterator([' sTr ']);
         $instance->addFilter('strtolower');
@@ -32,7 +36,7 @@ class FilterAggregateIteratorTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('Str', $item);
     }
 
-    public function testFiltersOnKeysAreApplied()
+    public function testFiltersOnKeysAreApplied(): void
     {
         $expected = ['test' => 'TEST'];
         $instance = new FilterAggregateIterator($expected);

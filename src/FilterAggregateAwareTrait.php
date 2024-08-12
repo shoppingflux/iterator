@@ -1,17 +1,12 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
 trait FilterAggregateAwareTrait
 {
-    /**
-     * @var array
-     */
-    private $filters = [];
+    private array $filters = [];
 
-    /**
-     * @inheritdoc
-     */
-    public function addFilter(callable $filter)
+    public function addFilter(callable $filter): FilterAggregateIteratorInterface
     {
         $this->filters[] = $filter;
 
