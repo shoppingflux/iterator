@@ -2,11 +2,10 @@
 
 namespace ShoppingFeed\Iterator;
 
-use Traversable;
-
 abstract class AbstractIterator implements IteratorInterface
 {
-    protected array|Traversable $items;
+    /** @var iterable<mixed> */
+    protected iterable $items;
 
     /**
      * @inheritdoc

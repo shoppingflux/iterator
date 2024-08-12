@@ -5,6 +5,7 @@ namespace ShoppingFeed\Iterator;
 use Countable;
 use Generator;
 use ReturnTypeWillChange;
+use Traversable;
 
 class FilterAggregateIterator extends AbstractIterator implements Countable, FilterAggregateIteratorInterface
 {
@@ -13,7 +14,10 @@ class FilterAggregateIterator extends AbstractIterator implements Countable, Fil
     /** @var callable[] */
     private array $filters = [];
 
-    public function __construct($arrayOrTraversable)
+    /**
+     * @param iterable<mixed> $arrayOrTraversable
+     */
+    public function __construct(iterable $arrayOrTraversable)
     {
         $this->items = $arrayOrTraversable;
     }
@@ -33,6 +37,10 @@ class FilterAggregateIterator extends AbstractIterator implements Countable, Fil
     #[ReturnTypeWillChange]
     public function count(): int
     {
+        if ($this->items instanceof Traversable) {
+            $this->items = iterator_to_array($this->items);
+        }
+
         return count($this->items);
     }
 }

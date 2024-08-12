@@ -12,6 +12,8 @@ use Traversable;
  *
  * CountableIterable is a composite type for any parameter which is countable
  * AND iterable.
+ *
+ * @extends Traversable<array-key, mixed>
  */
 interface CountableTraversable extends Traversable, Countable
 {

@@ -9,6 +9,7 @@ use Traversable;
 
 class CallbackIterator extends AbstractIterator
 {
+    /** @var ArrayIterator|Traversable<mixed> */
     private ArrayIterator|Traversable $iterator;
 
     /** @var callable */
