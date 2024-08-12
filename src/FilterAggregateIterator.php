@@ -3,7 +3,6 @@
 namespace ShoppingFeed\Iterator;
 
 use Countable;
-use Generator;
 use ReturnTypeWillChange;
 use Traversable;
 
@@ -23,7 +22,7 @@ class FilterAggregateIterator extends AbstractIterator implements Countable, Fil
     }
 
     #[ReturnTypeWillChange]
-    public function getIterator(): Generator
+    public function getIterator()
     {
         foreach ($this->items as $key => $item) {
             foreach ($this->filters as $filter) {
@@ -34,7 +33,6 @@ class FilterAggregateIterator extends AbstractIterator implements Countable, Fil
         }
     }
 
-    #[ReturnTypeWillChange]
     public function count(): int
     {
         if ($this->items instanceof Traversable) {
