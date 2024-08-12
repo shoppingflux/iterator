@@ -8,6 +8,7 @@ use Iterator;
 use IteratorAggregate;
 
 /**
+ * @param iterable<mixed> $iterable
  * @throws InvalidArgumentException|\Exception
  */
 function iterable_to_iterator(iterable $iterable): Iterator
