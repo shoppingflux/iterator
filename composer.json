@@ -23,10 +23,10 @@
     "phplint": "vendor/bin/phplint src --cache=build/phplint.cache",
     "phpstan": "vendor/bin/phpstan analyse --memory-limit=1G",
     "test": [
-      "@phpunit",
-      "@phpcs",
       "@phplint",
-      "@phpstan"
+      "@phpunit",
+      "@phpstan",
+      "@phpcs"
     ]
   },
   "config": {
