@@ -1,11 +1,10 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
 abstract class AbstractIterator implements IteratorInterface
 {
-    /**
-     * @var array|\Traversable
-     */
+    /** @var array|\Traversable */
     protected $items;
 
     /**

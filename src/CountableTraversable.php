@@ -15,5 +15,4 @@ use Traversable;
  */
 interface CountableTraversable extends Traversable, Countable
 {
-
 }

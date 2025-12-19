@@ -1,16 +1,17 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
+
+use ArrayIterator;
+use ReturnTypeWillChange;
+use Traversable;
 
 class CallbackIterator extends AbstractIterator
 {
-    /**
-     * @var \Iterator
-     */
+    /** @var \Iterator */
     private $iterator;
 
-    /**
-     * @var callable
-     */
+    /** @var callable */
     private $callback;
 
     /**
@@ -20,12 +21,12 @@ class CallbackIterator extends AbstractIterator
     public function __construct($arrayOrIterator, callable $callback)
     {
         if (is_array($arrayOrIterator)) {
-            $arrayOrIterator = new \ArrayIterator($arrayOrIterator);
+            $arrayOrIterator = new ArrayIterator($arrayOrIterator);
         }
 
-        if (! $arrayOrIterator instanceof \Traversable) {
+        if (! $arrayOrIterator instanceof Traversable) {
             throw new Exception\InvalidArgumentException(
-                'Expecting an array or an instance of \Traversable'
+                'Expecting an array or an instance of \Traversable',
             );
         }
 
@@ -33,7 +34,7 @@ class CallbackIterator extends AbstractIterator
         $this->callback = $callback;
     }
 
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function getIterator()
     {
         foreach ($this->iterator as $key => $item) {

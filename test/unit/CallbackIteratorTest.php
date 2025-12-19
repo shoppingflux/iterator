@@ -1,22 +1,27 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
-/**
- * @group stdlib
- * @group iterator
- */
-class CallbackIteratorTest extends \PHPUnit_Framework_TestCase
+use ArrayIterator;
+use IteratorAggregate;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\TestCase;
+use ShoppingFeed\Iterator\Exception\InvalidArgumentException;
+
+#[Group('stdlib')]
+#[Group('iterator')]
+class CallbackIteratorTest extends TestCase
 {
     private $instance;
 
     private $iterator;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->iterator = $this->createMock('\Iterator');
         $this->instance = new CallbackIterator(
             $this->iterator,
-            [$this, 'toLowerCallback']
+            [$this, 'toLowerCallback'],
         );
     }
 
@@ -24,36 +29,35 @@ class CallbackIteratorTest extends \PHPUnit_Framework_TestCase
     {
         $instance = new CallbackIterator(
             ['element1', 'element2'],
-            [$this, 'toLowerCallback']
+            [$this, 'toLowerCallback'],
         );
 
         $this->assertInstanceOf(
             CallbackIterator::class,
-            $instance
+            $instance,
         );
     }
 
     public function testConstructWithIteratorAggregate()
     {
         $expected          = ['foo', 'bar', 'baz'];
-        $iteratorAggregate = $this->createMock(\IteratorAggregate::class);
+        $iteratorAggregate = $this->createMock(IteratorAggregate::class);
         $iteratorAggregate
             ->expects($this->once())
             ->method('getIterator')
-            ->willReturn(new \ArrayIterator($expected));
+            ->willReturn(new ArrayIterator($expected));
 
         $instance = new CallbackIterator($iteratorAggregate, [$this, 'toLowerCallback']);
         $this->assertSame($expected, $instance->toArray());
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testConstructWithInvalidValidator()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         new CallbackIterator(
             'invalidParameter',
-            [$this, 'toLowerCallback']
+            [$this, 'toLowerCallback'],
         );
     }
 
@@ -61,17 +65,17 @@ class CallbackIteratorTest extends \PHPUnit_Framework_TestCase
     {
         $iterator = new CallbackIterator(
             ['TOTO', 'TITI'],
-            self::class . '::toLowerStatic'
+            self::class . '::toLowerStatic',
         );
 
-        $this->assertInstanceOf(\IteratorAggregate::class, $iterator);
+        $this->assertInstanceOf(IteratorAggregate::class, $iterator);
     }
 
     public function testIteratesWithCallback()
     {
         $iterator = new CallbackIterator(
             ['TOTO', 'TITI'],
-            self::class . '::toLowerStatic'
+            self::class . '::toLowerStatic',
         );
 
         $this->assertSame(['toto', 'titi'], $iterator->toArray());

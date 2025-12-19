@@ -1,7 +1,10 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
-class KeyThenValueIteratorTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class KeyThenValueIteratorTest extends TestCase
 {
     public function testIteratorProvidesTheKeyThenTheValue()
     {
@@ -14,8 +17,8 @@ class KeyThenValueIteratorTest extends \PHPUnit_Framework_TestCase
     {
         $this->expectException(Exception\InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'Argument 1 passed to ShoppingFeed\Iterator\KeyThenValueIterator::__construct '.
-            'must be an array or an instance of \Traversable'
+            'Argument 1 passed to ShoppingFeed\Iterator\KeyThenValueIterator::__construct ' .
+            'must be an array or an instance of \Traversable',
         );
 
         new KeyThenValueIterator('foo');

@@ -1,11 +1,10 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
 trait FilterAggregateAwareTrait
 {
-    /**
-     * @var array
-     */
+    /** @var array */
     private $filters = [];
 
     /**

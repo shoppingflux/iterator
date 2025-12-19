@@ -1,0 +1,115 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Method ShoppingFeed\\Iterator\\AbstractIterator\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/AbstractIterator.php
+
+		-
+			message: '#^Property ShoppingFeed\\Iterator\\AbstractIterator\:\:\$items type has no value type specified in iterable type Traversable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/AbstractIterator.php
+
+		-
+			message: '#^Property ShoppingFeed\\Iterator\\AbstractIterator\:\:\$items type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/AbstractIterator.php
+
+		-
+			message: '#^Property ShoppingFeed\\Iterator\\AbstractIterator\:\:\$items type has no value type specified in iterable type array\|Traversable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/AbstractIterator.php
+
+		-
+			message: '#^Method ShoppingFeed\\Iterator\\CallbackIterator\:\:__construct\(\) has parameter \$arrayOrIterator with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/CallbackIterator.php
+
+		-
+			message: '#^Property ShoppingFeed\\Iterator\\CallbackIterator\:\:\$iterator \(Iterator\) does not accept Traversable\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/CallbackIterator.php
+
+		-
+			message: '#^Interface ShoppingFeed\\Iterator\\CountableTraversable extends generic interface Traversable but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/CountableTraversable.php
+
+		-
+			message: '#^Interface ShoppingFeed\\Iterator\\CountableTraversable has type alias CountableIterable with no value type specified in iterable type ShoppingFeed\\Iterator\\CountableTraversable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/CountableTraversable.php
+
+		-
+			message: '#^Interface ShoppingFeed\\Iterator\\CountableTraversable has type alias CountableIterable with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/CountableTraversable.php
+
+		-
+			message: '#^Interface ShoppingFeed\\Iterator\\CountableTraversable has type alias CountableIterable with no value type specified in iterable type array\|ShoppingFeed\\Iterator\\CountableTraversable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/CountableTraversable.php
+
+		-
+			message: '#^Method ShoppingFeed\\Iterator\\FilterAggregateIterator\:\:__construct\(\) has parameter \$arrayOrTraversable with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/FilterAggregateIterator.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, array\|Traversable given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/FilterAggregateIterator.php
+
+		-
+			message: '#^Interface ShoppingFeed\\Iterator\\IteratorInterface extends generic interface IteratorAggregate but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/IteratorInterface.php
+
+		-
+			message: '#^Method ShoppingFeed\\Iterator\\IteratorInterface\:\:toArray\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/IteratorInterface.php
+
+		-
+			message: '#^Instanceof between Traversable and Traversable will always evaluate to true\.$#'
+			identifier: instanceof.alwaysTrue
+			count: 1
+			path: src/KeyThenValueIterator.php
+
+		-
+			message: '#^Method ShoppingFeed\\Iterator\\KeyThenValueIterator\:\:__construct\(\) has parameter \$iterable with no value type specified in iterable type Traversable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/KeyThenValueIterator.php
+
+		-
+			message: '#^Method ShoppingFeed\\Iterator\\KeyThenValueIterator\:\:__construct\(\) has parameter \$iterable with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/KeyThenValueIterator.php
+
+		-
+			message: '#^Method ShoppingFeed\\Iterator\\KeyThenValueIterator\:\:__construct\(\) has parameter \$iterable with no value type specified in iterable type array\|Traversable\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/KeyThenValueIterator.php
+
+		-
+			message: '#^Result of && is always false\.$#'
+			identifier: booleanAnd.alwaysFalse
+			count: 1
+			path: src/KeyThenValueIterator.php

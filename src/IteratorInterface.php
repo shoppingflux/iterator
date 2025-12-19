@@ -1,7 +1,10 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
-interface IteratorInterface extends \IteratorAggregate
+use IteratorAggregate;
+
+interface IteratorInterface extends IteratorAggregate
 {
     /**
      * @return array

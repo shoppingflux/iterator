@@ -1,7 +1,11 @@
 <?php
+
 namespace ShoppingFeed\Iterator;
 
-class FilterAggregateIteratorTest extends \PHPUnit_Framework_TestCase
+use ArrayObject;
+use PHPUnit\Framework\TestCase;
+
+class FilterAggregateIteratorTest extends TestCase
 {
     public function testCountCollection()
     {
@@ -11,9 +15,8 @@ class FilterAggregateIteratorTest extends \PHPUnit_Framework_TestCase
     public function testToArrayReturnInternalStoredItems()
     {
         $array = [1, 1];
-        $this->assertSame($array, (new FilterAggregateIterator(new \ArrayObject($array)))->toArray());
+        $this->assertSame($array, (new FilterAggregateIterator(new ArrayObject($array)))->toArray());
     }
-
 
     public function testAddFilterIsFluent()
     {

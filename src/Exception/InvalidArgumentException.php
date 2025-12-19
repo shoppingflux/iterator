@@ -1,6 +1,9 @@
 <?php
+
 namespace ShoppingFeed\Iterator\Exception;
 
-class InvalidArgumentException extends \InvalidArgumentException
+use InvalidArgumentException as BaseInvalidArgumentException;
+
+class InvalidArgumentException extends BaseInvalidArgumentException
 {
 }
